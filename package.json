@@ -1,0 +1,30 @@
+{
+  "name": "envlock",
+  "version": "1.0.0",
+  "description": "Encrypt, sync, and inject .env files. Zero-config, zero-login, works offline.",
+  "type": "module",
+  "bin": {
+    "envlock": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc && node dist/cli.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["env", "dotenv", "encrypt", "cli", "secrets", "vault"],
+  "author": "fanioz",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.0"
+  },
+  "dependencies": {
+    "commander": "^12.0.0"
+  }
+}
