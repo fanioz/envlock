@@ -1,10 +1,10 @@
 {
-  "name": "envlock",
+  "name": "envcrypt",
   "version": "1.0.0",
   "description": "Encrypt, sync, and inject .env files. Zero-config, zero-login, works offline.",
   "type": "module",
   "bin": {
-    "envlock": "./dist/cli.js"
+    "envcrypt": "./dist/cli.js"
   },
   "files": [
     "dist"

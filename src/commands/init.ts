@@ -22,6 +22,6 @@ export function runInit(baseDir: string): void {
   writeFileSync(vaultPath, encrypted);
 
   console.log("Encrypted .env → .env.lock");
-  console.log("Key saved to ~/.envlock.json");
+  console.log("Key saved to ~/.envcrypt.json");
   console.log("Do NOT commit .env or .env.lock to git.");
 }

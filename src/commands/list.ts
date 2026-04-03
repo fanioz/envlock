@@ -4,7 +4,7 @@ export function runList(baseDir: string): void {
   const envs = listEnvironments(baseDir);
 
   if (envs.length === 0) {
-    console.log("No environments found. Use `envlock sync <env>` to save environments.");
+    console.log("No environments found. Use `envcrypt sync <env>` to save environments.");
     return;
   }
 

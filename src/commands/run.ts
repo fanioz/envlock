@@ -8,7 +8,7 @@ export function runRun(baseDir: string, command: string, args: string[]): void {
   const vaultPath = getVaultPath(baseDir);
 
   if (!existsSync(vaultPath)) {
-    console.error("No .env.lock found. Run `envlock init` first.");
+    console.error("No .env.lock found. Run `envcrypt init` first.");
     process.exit(1);
   }
 

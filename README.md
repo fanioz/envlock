@@ -1,11 +1,11 @@
-# envlock
+# envcrypt
 
 Encrypt, sync, and inject `.env` files. Zero-config, zero-login, works offline.
 
 ## Install
 
 ```bash
-npm install -g envlock
+npm install -g envcrypt
 ```
 
 ## Quick Start
@@ -15,53 +15,53 @@ npm install -g envlock
 echo "DB_HOST=localhost\nDB_PASS=secret" > .env
 
 # 2. Initialize — encrypts .env → .env.lock
-envlock init
+envcrypt init
 
 # 3. Run any command with decrypted env vars injected
-envlock run node server.js
-envlock run npm start
-envlock run python app.py
+envcrypt run node server.js
+envcrypt run npm start
+envcrypt run python app.py
 ```
 
 ## Commands
 
-### `envlock init`
+### `envcrypt init`
 
-Encrypts your current `.env` file into `.env.lock` using AES-256-GCM. The encryption key is stored locally at `~/.envlock.json`.
+Encrypts your current `.env` file into `.env.lock` using AES-256-GCM. The encryption key is stored locally at `~/.envcrypt.json`.
 
 ```bash
-envlock init
+envcrypt init
 ```
 
-### `envlock run <command>`
+### `envcrypt run <command>`
 
 Decrypts `.env.lock` and injects all values as environment variables, then runs the given command.
 
 ```bash
-envlock run node server.js
-envlock run "npm run dev"
+envcrypt run node server.js
+envcrypt run "npm run dev"
 ```
 
-### `envlock sync <env>`
+### `envcrypt sync <env>`
 
 Saves the decrypted environment to `.envs/<env>.env` and copies it to `.env`. Use this to switch between environments.
 
 ```bash
-envlock sync staging
-envlock sync production
+envcrypt sync staging
+envcrypt sync production
 ```
 
-### `envlock list`
+### `envcrypt list`
 
 Shows all saved environments.
 
 ```bash
-envlock list
+envcrypt list
 ```
 
 ## How It Works
 
-1. **`init`** generates a random encryption key (saved to `~/.envlock.json`), reads `.env`, encrypts it with AES-256-GCM, and writes the ciphertext to `.env.lock`.
+1. **`init`** generates a random encryption key (saved to `~/.envcrypt.json`), reads `.env`, encrypts it with AES-256-GCM, and writes the ciphertext to `.env.lock`.
 2. **`run`** decrypts `.env.lock`, injects all variables into `process.env`, and spawns your command as a child process.
 3. **`sync`** decrypts `.env.lock`, saves a named copy to `.envs/<name>.env`, and overwrites `.env` with it.
 4. **`list`** scans the `.envs/` directory for saved environments.
@@ -69,9 +69,9 @@ envlock list
 ## Security
 
 - AES-256-GCM encryption with scrypt key derivation
-- Key stored locally at `~/.envlock.json` (never sent anywhere)
+- Key stored locally at `~/.envcrypt.json` (never sent anywhere)
 - Zero network calls — fully offline
-- Do NOT commit `.env`, `.env.lock`, or `~/.envlock.json` to version control
+- Do NOT commit `.env`, `.env.lock`, or `~/.envcrypt.json` to version control
 
 ## License
 

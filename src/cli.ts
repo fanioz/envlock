@@ -8,7 +8,7 @@ import { runList } from "./commands/list.js";
 const program = new Command();
 
 program
-  .name("envlock")
+  .name("envcrypt")
   .description("Encrypt, sync, and inject .env files")
   .version("1.0.0");
 

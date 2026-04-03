@@ -14,7 +14,7 @@ function deriveKey(password: string, salt: Buffer): Buffer {
 }
 
 function getConfigPath(): string {
-  return join(homedir(), ".envlock.json");
+  return join(homedir(), ".envcrypt.json");
 }
 
 function getKey(): string {
@@ -24,7 +24,7 @@ function getKey(): string {
     if (config.key) return config.key;
   }
   throw new Error(
-    "No encryption key found. Run `envlock init` first to set up encryption."
+    "No encryption key found. Run `envcrypt init` first to set up encryption."
   );
 }
 
